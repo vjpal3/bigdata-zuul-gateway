@@ -11,24 +11,24 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
  
 zuul:
+  sensitive-headers: Cookie,Set-Cookie
   #Service will be mapped under the /api URI
   #prefix: /api
   # The ignoredServices disable accessing services using service name
   # with these they should be only accessed through the path we defined below.
   ignoredServices: '*'
   routes:
-    bigdata-import-service:
-      path: /api/bigdata/**
-      service-id: bigdata-import-service
-      strip-prefix: false
     security-jwt-service_users:
       path: /api/users/**
-      service-id: security-jwt-service
-      strip-prefix: false
-      sensitive-headers: Cookie,Set-Cookie
+      serviceId: security-jwt-service
+      stripPrefix: false
     security-jwt-service_welcome:
       path: /welcome
-      service-id: security-jwt-service
-      strip-prefix: false
-      sensitive-headers: Cookie,Set-Cookie
+      serviceId: security-jwt-service
+      stripPrefix: false
+    bigdata-import-service:
+      path: /api/bigdata/**
+      serviceId: bigdata-import-service
+      stripPrefix: false
+      
    
