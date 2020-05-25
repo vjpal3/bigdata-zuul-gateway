@@ -30,5 +30,7 @@ zuul:
       path: /api/bigdata/**
       serviceId: bigdata-import-service
       stripPrefix: false
-      
-   
+    sidecar-python-service:  
+      path: /api/fraud-detection/**
+      serviceId: sidecar-python-service
+      stripPrefix: false
