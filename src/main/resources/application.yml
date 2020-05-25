@@ -9,8 +9,14 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+      
+ribbon:
+   ReadTimeout: 190000
+   ConnectionTimeout: 190000
+   eureka:
+      enabled: true
  
-zuul:
+zuul:   
   sensitive-headers: Cookie,Set-Cookie
   #Service will be mapped under the /api URI
   #prefix: /api
